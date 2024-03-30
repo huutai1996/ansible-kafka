@@ -1,0 +1,9 @@
+userapp: appadmin
+kafka:
+  listeners: PLAINTEXT://:9092
+  data_dir: /data/apps/kafka/data/kafka
+  offset_topic_replication_factor: 3
+  transaction_state_log_replication_factor: 3
+  transaction_state_log_min_isr: 2
+
+

@@ -1,0 +1,7 @@
+---
+- name: Install kafka with zookeeper
+  hosts: kafka
+  become: true
+  gather_facts: false
+  roles:
+    - kafka

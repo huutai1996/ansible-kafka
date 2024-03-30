@@ -1,0 +1,4 @@
+- name: install java-17
+  yum:
+    name: java-17
+    state: present

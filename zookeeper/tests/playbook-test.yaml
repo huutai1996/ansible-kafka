@@ -1,0 +1,11 @@
+---
+- name: test
+  hosts: all
+  become: true
+  gather_facts: false
+  vars_files:
+    - var/var.yaml
+  tasks:
+    - name: debug variables
+      debug:
+        msg : "the value is {{ hostvars[inventory_hostname].id }}"

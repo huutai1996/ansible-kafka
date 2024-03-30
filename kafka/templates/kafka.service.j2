@@ -1,0 +1,11 @@
+[Unit]
+Description=kafka Service
+After=network.target
+[Service]
+User={{ userapp }}
+Group={{ userapp }}
+ExecStart=/data/apps/kafka/bin/kafka-server-start.sh /data/apps/kafka/config/server.properties
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

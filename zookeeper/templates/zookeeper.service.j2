@@ -1,0 +1,11 @@
+[Unit]
+Description=Zookeeper Service
+After=network.target
+[Service]
+User={{ userapp }}
+Group={{ userapp }}
+ExecStart=/data/apps/kafka/bin/zookeeper-server-start.sh /data/apps/kafka/config/zookeeper.properties
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+---
+- include_tasks: install_java.yaml
+- include_tasks: install_zookeeper.yaml
+- name: Create id for zookeeper
+  shell: echo {{ hostvars[inventory_hostname].id }} > "{{ zookeeper.data_dir }}/myid"
+- name: Create file zookeeper.properties
+  template:
+        src: templates/zookeeper.properties.j2
+        dest: /data/apps/kafka/config/zookeeper.properties
+- name: Grant permission run service
+  file:
+    path: /data/apps/kafka
+    owner: "{{ userapp }}"
+    group: "{{ userapp }}"
+    recurse: true
+- name: Create file zookeeper.service
+  template:
+    src: templates/zookeeper.service.j2
+    dest: /etc/systemd/system/zookeeper.service
+- name: reload demon
+  systemd:
+    daemon_reload: yes
+- name: start service
+  systemd:
+    name: zookeeper
+    state: restarted
+    enabled: true

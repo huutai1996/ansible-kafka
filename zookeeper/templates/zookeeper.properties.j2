@@ -1,0 +1,10 @@
+dataDir={{ zookeeper.data_dir }}
+clientPort={{ zookeeper.port }}
+maxClientCnxns=0
+admin.enableServer=false
+initLimit=10
+syncLimit=5
+server.{{ hostvars.zoo01.id }}={{ hostvars.zoo01.ansible_host }}:2888:3888
+server.{{ hostvars.zoo02.id }}={{ hostvars.zoo02.ansible_host }}:2888:3888
+server.{{ hostvars.zoo03.id }}={{ hostvars.zoo03.ansible_host }}:2888:3888
+

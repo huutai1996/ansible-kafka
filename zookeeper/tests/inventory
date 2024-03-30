@@ -1,0 +1,8 @@
+[kafka]
+kafka01 ansible_host=192.168.56.14 ansible_user=ansible id=1
+kafka02 ansible_host=192.168.56.15 ansible_user=ansible id=2
+kafka03 ansible_host=192.168.56.16 ansible_user=ansible id=3
+[zookeeper]
+zoo01 ansible_host=192.168.56.14 ansible_user=ansible id=1
+zoo02 ansible_host=192.168.56.15 ansible_user=ansible id=2
+zoo03 ansible_host=192.168.56.16 ansible_user=ansible id=3
